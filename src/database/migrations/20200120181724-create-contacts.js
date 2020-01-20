@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('contacts', {
 
@@ -7,34 +5,34 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: Sequelize.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     message: {
-      type: Sequelize.TEXT
+      type: Sequelize.TEXT,
     },
     register: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
     },
     created_at: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
     },
     updated_at: {
       type: Sequelize.DATE,
-      allowNull: false
-    }
+      allowNull: false,
+    },
 
 
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('contacts')
+  down: (queryInterface) => queryInterface.dropTable('contacts'),
 };

@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('reservations', {
 
@@ -7,19 +5,19 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     name: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     people: {
       type: Sequelize.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     date: {
       type: Sequelize.DATEONLY,
@@ -27,22 +25,22 @@ module.exports = {
     },
     time: {
       type: Sequelize.TIME,
-      allowNull: true
+      allowNull: true,
     },
     register: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
     },
     created_at: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
     },
     updated_at: {
       type: Sequelize.DATE,
-      allowNull: false
-    }
+      allowNull: false,
+    },
 
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('reservations')
+  down: (queryInterface) => queryInterface.dropTable('reservations'),
 
 };

@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => queryInterface.createTable('menus', {
 
@@ -7,15 +5,15 @@ module.exports = {
       type: Sequelize.INTEGER,
       allowNull: false,
       autoIncrement: true,
-      primaryKey: true
+      primaryKey: true,
     },
     title: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: false,
     },
     price: {
       type: Sequelize.FLOAT,
@@ -23,22 +21,22 @@ module.exports = {
     },
     photo: {
       type: Sequelize.STRING,
-      allowNull: true
+      allowNull: true,
     },
     register: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
     },
     created_at: {
       type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
     },
     updated_at: {
       type: Sequelize.DATE,
-      allowNull: false
-    }
+      allowNull: false,
+    },
 
   }),
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('menus')
+  down: (queryInterface) => queryInterface.dropTable('menus'),
 
 };
