@@ -11,9 +11,14 @@ export default async (req, res, next) => {
 
   const [, token] = authHeader.split(' ');
 
+  // const permissions = ['del', 'add', 'edit'];
+  // const operation = ['candide'];
+
   try {
     const decoded = await promisify(jwt.verify)(token, authConfig.secret);
     req.userId = decoded.id;
+    // req.permissions = permissions;
+    // req.operation = operation;
     return next();
   } catch (error) {
     return res.status(401).json({ message: 'Invalid token!' });
