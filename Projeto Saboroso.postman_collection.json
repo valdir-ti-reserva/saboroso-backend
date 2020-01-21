@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7be74d7c-5625-46b4-b703-487df61b4770",
+		"_postman_id": "5d2a32a6-c252-43b2-affc-cd7f837f772e",
 		"name": "Projeto Saboroso",
 		"description": "API Projeto saboroso\n\nGit: https://github.com/valdir-ti/saboroso-backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -23,7 +23,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\t\r\n\t\"name\":\"Lila Felix 4\",\r\n\t\"email\":\"lila4@mail.com\",\r\n\t\"password_hash\":\"123456\"\r\n}",
+							"raw": "{\t\r\n\t\"name\":\"Lila Felix\",\r\n\t\"email\":\"lila@mail.com\",\r\n\t\"password_hash\":\"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -31,12 +31,57 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3334/users",
+							"raw": "http://localhost:33325/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3334",
+							"port": "33325",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTc5NTY3OTU4LCJleHAiOjE1ODAxNzI3NTh9.r4ctISTvqukypeAsKxumYbdRPdbZ-PW65WuTJ3VUksQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n\t\"name\":\"Valdir da Silva\",\r\n\t\"email\":\"val@mail.com\",\r\n\t\"oldPassword\":\"1234567\",\r\n\t\"password_hash\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33325/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33325",
 							"path": [
 								"users"
 							]
@@ -65,6 +110,47 @@
 		{
 			"name": "CRUD Contacts",
 			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Create Session",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n\t\"email\":\"val@mail.com\",\r\n\t\"password_hash\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:33325/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "33325",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],
