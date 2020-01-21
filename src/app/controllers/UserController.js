@@ -1,7 +1,18 @@
+import * as Yup from 'yup';
 import User from '../models/Users';
 
 class UserController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      name: Yup.string().required(),
+      email: Yup.string().email().required(),
+      password_hash: Yup.string().required().min(6),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ message: 'Validation Fails!' });
+    }
+
     const userExists = await User.findOne({ where: { email: req.body.email } });
 
     if (userExists) {
@@ -15,6 +26,23 @@ class UserController {
   }
 
   async update(req, res) {
+    const schema = Yup.object().shape({
+      name: Yup.string(),
+      email: Yup.string()
+        .email(),
+      oldPassword: Yup.string()
+        .min(6),
+      password_hash: Yup.string()
+        .min(6)
+        .when('oldPassword', (oldPassword, field) => (oldPassword ? field.required() : field)),
+      confirmPassword: Yup.string()
+        .when('password_hash', (password_hash, field) => (password_hash ? field.required().oneOf([Yup.ref('password_hash')]) : field)),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ message: 'Validation Fails!' });
+    }
+
     const { email, oldPassword } = req.body;
 
     const user = await User.findByPk(req.userId);
@@ -34,7 +62,10 @@ class UserController {
     const { id, name } = await user.update(req.body);
 
     return res.json({
-      id, name, email,
+      status: true,
+      data: {
+        id, name, email,
+      },
     });
   }
 }
