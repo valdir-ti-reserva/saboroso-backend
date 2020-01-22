@@ -109,7 +109,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\t\r\n\t\"name\":\"Lila Felix 12\",\r\n\t\"password_hash\":\"123456\"\r\n}",
+							"raw": "{\t\r\n\t\"title\":\"Sushi\",\r\n\t\"description\":\"Sushi de Salmão\",\r\n\t\"price\":\"22.8\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -150,7 +150,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\t\r\n\t\"name\":\"Lila Felix 12\",\r\n\t\"email\":\"lila@mail.com\",\r\n\t\"people\":2,\r\n\t\"date\":\"\",\r\n\t\"time\":\"\"\r\n}",
+							"raw": "{\t\r\n\t\"name\":\"Valdir Silva\",\r\n\t\"email\":\"val@mail.com\",\r\n\t\"people\":5,\r\n\t\"date\":\"2020-01-23\",\r\n\t\"time\":\"10:00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
