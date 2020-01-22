@@ -1,13 +1,14 @@
 import Sequelize from 'sequelize';
 
+import Menu from '../app/models/Menus';
 import User from '../app/models/Users';
-import Contact from '../app/models/Contacts';
 import Email from '../app/models/Emails';
+import Contact from '../app/models/Contacts';
 import Reservation from '../app/models/Reservations';
 
 import dataBaseConfig from '../config/database';
 
-const models = [User, Contact, Email, Reservation];
+const models = [User, Contact, Email, Reservation, Menu];
 
 class Database {
   constructor() {
