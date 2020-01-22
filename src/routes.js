@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
 import UserController from './app/controllers/UserController';
+import EmailController from './app/controllers/EmailController';
 import SessionController from './app/controllers/SessionController';
 import ContactController from './app/controllers/ContactController';
-import EmailController from './app/controllers/EmailController';
 import ReservationController from './app/controllers/ReservationController';
 
 import authMiddleware from './app/middlewares/auth';
