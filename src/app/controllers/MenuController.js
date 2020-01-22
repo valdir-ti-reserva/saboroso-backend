@@ -13,9 +13,19 @@ class MenuController {
       return res.status(400).json({ message: 'Validation Fails' });
     }
 
-    const { title, description, price } = await Menu.create(req.body);
+    const { path, mimetype } = req.file;
 
-    return res.json({ status: true, menu: { title, description, price } });
+    const permitted = ['image/jpeg', 'image/png'];
+
+    if (permitted.indexOf(mimetype) === -1) {
+      return res.status(400).json({ message: 'Invalid format' });
+    }
+
+    req.body.photo = (path);
+
+    const menu = await Menu.create(req.body);
+
+    return res.json({ status: true, menu });
   }
 }
 
