@@ -15,8 +15,6 @@ const routes = new Router();
 
 const upload = multer(multerConfig);
 
-routes.post('/users', UserController.store);
-routes.post('/menus', upload.single('file'), MenuController.store);
 routes.post('/subscribe', EmailController.store);
 routes.post('/sessions', SessionController.store);
 routes.post('/contacts', ContactController.store);
@@ -24,6 +22,8 @@ routes.post('/reservations', ReservationController.store);
 
 routes.use(authMiddleware);
 
+routes.post('/users', UserController.store);
 routes.put('/users', UserController.update);
+routes.post('/menus', upload.single('file'), MenuController.store);
 
 export default routes;

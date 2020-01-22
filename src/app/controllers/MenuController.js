@@ -15,7 +15,7 @@ class MenuController {
 
     const { path, mimetype } = req.file;
 
-    const permitted = ['image/jpeg', 'image/png'];
+    const permitted = ['image/jpeg', 'image/png', 'image/jpg'];
 
     if (permitted.indexOf(mimetype) === -1) {
       return res.status(400).json({ message: 'Invalid format' });
