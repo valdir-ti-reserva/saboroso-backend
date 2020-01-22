@@ -28,7 +28,13 @@ class ReservationController {
     }
 
     // Checar se o email já tem reserva para o dia e horário
-    const checaData = await Reservation.findOne({ where: { date: req.body.date, time: req.body.time, email: req.body.email } });
+    const checaData = await Reservation.findOne({
+      where: {
+        date: req.body.date,
+        time: req.body.time,
+        email: req.body.email,
+      },
+    });
     if (checaData) {
       return res.status(401).json({ status: true, message: 'Date and Time already in use by user' });
     }
